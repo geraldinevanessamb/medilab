@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Geolocación gMaps</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<section>
+	<div class="container">
+        <h1>Geolocalización con GoogleMaps</h1>
+        
+        <p>Cambie las coordenadas encontradas en GoogleMaps en las variables: <pre>mLat y mLng</pre></p>
+        
+        <div class="map_container">
+            <div id="map"></div>
+        </div>
+</div>
+</section>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false"></script>
+<script src="js/gmaps.js"></script>
+<script>
+$(function () {
+	
+	$(window).load(function(){
+		mostrarMapa();
+	});
+
+	function mostrarMapa(){
+		var map;
+		var mLat = 14.084222; //latitud
+		var mLng = -87.157002; //longitud
+
+		map = new GMaps({
+			div: '#map', //id del <div> donde se mostrará el mapa.
+			lat: mLat,
+			lng: mLng,
+			zoom: 18
+		  });
+		map.addMarker({
+		  lat: mLat,
+		  lng: mLng,
+		  title: 'Nuestra ubicación en gMaps',
+		  infoWindow: {
+			content: '<p><b> Nacional De Ingenieros Coliseum </b> </p> <p>Anillo Periferico, Tel.293-5356
+		});	
+		
+	}
+});
+</script>
+</body>
+</html>
